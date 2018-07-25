@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_201104) do
+ActiveRecord::Schema.define(version: 2018_07_25_201840) do
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_07_25_201104) do
     t.integer "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
   end
 
   create_table "subscriptions", force: :cascade do |t|

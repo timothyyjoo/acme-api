@@ -6,5 +6,6 @@ class Customer < ApplicationRecord
                         :address,
                         :city,
                         :state,
-                        :zip
+                        :zip,
+                        :token
 end
