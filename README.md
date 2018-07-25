@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an implementation of a backend API written in the Ruby on Rails framework.
 
-Things you may want to cover:
+The project management workflow can be viewed at https://www.pivotaltracker.com/n/projects/2186814
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Run bundle install
