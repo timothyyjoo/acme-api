@@ -6,5 +6,6 @@ FactoryBot.define do
     city "Modesto"
     state "CA"
     zip 1
+    token "12345"
   end
 end
