@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :customer do
     first_name "Jim"
-    second_name "Jones"
+    last_name "Jones"
     address "MyString"
     city "Modesto"
     state "CA"
