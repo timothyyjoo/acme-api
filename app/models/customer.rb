@@ -13,7 +13,6 @@ class Customer < ApplicationRecord
 
 
   def self.store_token(object, params, customer_data)
-
     @customer = Customer.new(customer_data)
     if @customer.save!
       plan = Plan.find(params[:plan_id])
@@ -25,4 +24,6 @@ class Customer < ApplicationRecord
       puts "There was an issue with customer details and we were unable to save the information in our database"
     end
   end
+
+
 end

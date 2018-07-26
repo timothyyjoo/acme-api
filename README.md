@@ -6,8 +6,9 @@ The project management workflow can be viewed at https://www.pivotaltracker.com/
 
 1. Run bundle install
 
+2. In CLI, type rake db:create db:migrate
 
-To populate the database with plans, please type rake populate_plans in CLI.
+3. To populate the database with plans, please type rake populate_plans in CLI.
 
 
 Sample POST Request body
