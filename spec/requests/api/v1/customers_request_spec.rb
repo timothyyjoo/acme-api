@@ -14,11 +14,11 @@ describe "Customer API" do
 
   it "sends a single customer by its id" do
     id = create(:customer).id
-
+    
     get "/api/v1/customers/#{id}"
     expect(response).to be_successful
-    
-    customers = JSON.parse(response.body)
+
+    customer = JSON.parse(response.body)
 
     expect(customer["id"]).to eq(id)
   end

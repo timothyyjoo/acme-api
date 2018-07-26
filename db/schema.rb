@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_191157) do
-
-  create_table "customer_subscriptions", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "subscription_id"
-    t.index ["customer_id"], name: "index_customer_subscriptions_on_customer_id"
-    t.index ["subscription_id"], name: "index_customer_subscriptions_on_subscription_id"
-  end
+ActiveRecord::Schema.define(version: 2018_07_26_202312) do
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
@@ -26,14 +19,21 @@ ActiveRecord::Schema.define(version: 2018_07_26_191157) do
     t.string "city"
     t.string "state"
     t.integer "zip"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "token"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "name"
+    t.string "price"
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.string "name"
-    t.string "price"
+    t.integer "customer_id"
+    t.integer "plan_id"
+    t.index ["customer_id"], name: "index_subscriptions_on_customer_id"
+    t.index ["plan_id"], name: "index_subscriptions_on_plan_id"
   end
 
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :subscription do
+  factory :plan do
     name "MyString"
-    price ""
+    price "1999"
   end
 end
