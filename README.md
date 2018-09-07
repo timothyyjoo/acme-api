@@ -13,7 +13,7 @@ The project management workflow can be viewed at https://www.pivotaltracker.com/
 
 2. In CLI, type rake db:create db:migrate
 
-3. To populate the database with plans, please type rake populate_plans in CLI.
+3. To populate the database with plans, please type rake create_plans in CLI.
 
 4. Run this API locally by typing rails s in CLI
 
@@ -48,4 +48,4 @@ Sample POST Request body
 
 9) Run rake to see all associated tests.
 
-10) I experimented with using serializers to display certain customer info but didn't dive too deeply due to the idea that I wasn't sure just how much customer information or information in general I wanted to expose. 
+10) I experimented with using serializers to display certain customer info but didn't dive too deeply due to the idea that I wasn't sure just how much customer information or information in general I wanted to expose.
