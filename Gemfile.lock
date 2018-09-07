@@ -107,6 +107,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
+    pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -195,6 +196,7 @@ DEPENDENCIES
   faraday
   figaro
   listen (>= 3.0.5, < 3.2)
+  pg (~> 0.18)
   pry
   puma (~> 3.11)
   rails (~> 5.2.0.rc1)
@@ -207,4 +209,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.2
+   1.16.4
