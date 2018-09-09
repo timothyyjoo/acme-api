@@ -24,8 +24,6 @@ class FakepayService
     JSON.parse(payload, symbolize_names: true)
   end
 
-
-
   def self.check_amount_with_plan(object)
     plan = object[:plan_id]
     amount = object[:amount]
