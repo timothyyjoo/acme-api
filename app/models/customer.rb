@@ -19,9 +19,9 @@ class Customer < ApplicationRecord
       @customer.plans << plan
       @customer.token = object[:token]
       @customer.save
-      puts "You've successfully loaded a customer into the database"
+      return json: { :success => "You've successfully loaded a customer into the database"}
     else
-      puts "There was an issue with customer details and we were unable to save the information in our database"
+      return json: { :error => "There was an issue with customer details and we were unable to save the information in our database"}
     end
   end
 

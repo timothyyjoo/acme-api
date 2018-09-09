@@ -23,7 +23,7 @@ describe "subscriptions api" do
     }
 
     post "/api/v1/subscriptions", {params:  subscription_params }
-
+    byebug
     customer = Customer.last
 
     assert_response :success
