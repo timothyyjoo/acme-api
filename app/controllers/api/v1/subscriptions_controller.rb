@@ -16,7 +16,7 @@ class Api::V1::SubscriptionsController < ApplicationController
       render json: {"Your transaction was successfully posted!"}
       Customer.store_token(formatted, params, customer_params)
     else
-      puts formatted
+      render json: {formatted}
     end
   end
 
