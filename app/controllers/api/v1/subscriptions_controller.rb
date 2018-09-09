@@ -14,7 +14,7 @@ class Api::V1::SubscriptionsController < ApplicationController
       # puts "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"
     elsif formatted[:success] == true
       render json: { :success => "Your transaction was successfully posted!"}
-      Customer.store_token(formatted, params, customer_params) 
+      render json: Customer.store_token(formatted, params, customer_params) 
     else
       render json: {:payload => formatted}
     end
