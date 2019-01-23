@@ -10,14 +10,14 @@ class Api::V1::SubscriptionsController < ApplicationController
    if Subscription.check_amount_with_plan(params) == true
      check_transaction(object)
    else
-   render json: { :error =>  "The payment amount does not align with the price of the selected plan. Please check your POST request"}
+   render json: {:error =>  "The payment amount does not align with the price of the selected plan. Please check your POST request"}
    end
   end
 
   def check_transaction(object)
     formatted = FakepayService.parse_json(object)
     if formatted[:success] == false
-      render json: {"Error": "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"}
+      render json: {:error =>  "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"}
     elsif formatted[:success] == true
       customer_validation = Customer.store_token(formatted, params, customer_params)
       render json: customer_validation
