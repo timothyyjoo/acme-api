@@ -14,14 +14,14 @@ class Customer < ApplicationRecord
 
   def self.store_token(object, params, customer_data)
     @customer = Customer.new(customer_data)
-    if @customer.save!
+    if @customer.save
       plan = Plan.find(params[:plan_id])
       @customer.plans << plan
       @customer.token = object[:token]
       @customer.save
-      render json: "You've successfully loaded a customer into the database"
+      return {"Status": "You've successfully loaded a customer into the database"}
     else
-      render json: "There was an issue with customer details and we were unable to save the information in our database"
+      return {"Error": "Your transaction was successful but there was an issue with customer details and we were unable to save the information in our database"}
     end
   end
 
