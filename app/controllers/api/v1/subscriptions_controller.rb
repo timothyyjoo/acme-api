@@ -10,11 +10,11 @@ class Api::V1::SubscriptionsController < ApplicationController
     FakepayService.check_amount_with_plan(params)
     formatted = FakepayService.parse_json(object)
     if formatted[:success] == false
-      render json: { :errors => "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"}
+      render json: { :errors => "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"} 
       # puts "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"
     elsif formatted[:success] == true
       render json: { :success => "Your transaction was successfully posted!"}
-      render json: Customer.store_token(formatted, params, customer_params) 
+      render json: Customer.store_token(formatted, params, customer_params)
     else
       render json: {:payload => formatted}
     end
