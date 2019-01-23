@@ -10,7 +10,7 @@ class Api::V1::SubscriptionsController < ApplicationController
    if Subscription.check_amount_with_plan(params) == true
      check_transaction(object)
    else
-   render json: {:error =>  "The payment amount does not align with the price of the selected plan. Please check your POST request"}
+     render json: {:error =>  "The payment amount does not align with the price of the selected plan. Please check your POST request"}
    end
   end
 
