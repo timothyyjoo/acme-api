@@ -30,9 +30,10 @@ describe "subscriptions api" do
     expect(response).to be_success
 
     expect(customer.first_name).to eq(subscription_params[:customer][:first_name])
+    expect(customer.plans.first.id).to eq(subscription_params[:plan_id])
   end
 
-  it "invalid post request returns empty response.body" do
+  it "invalid post request returns json_message" do
     create_list(:plan, 3)
     subscription_params = {
     	"customer": {
@@ -41,7 +42,7 @@ describe "subscriptions api" do
     		"address": "2120 Wimbeldon Court",
     		"city": "Modesto",
     		"state": "CA",
-    		"zip": 95355
+
     	},
     	"amount": "4900",
     	"card_number": "42424242424242421",
@@ -55,7 +56,7 @@ describe "subscriptions api" do
 
     post "/api/v1/subscriptions", {params:  subscription_params }
 
-    expect(response.body).to eq('')
+    expect(response.body).to eq('{"Error":"Your transaction was successful but there was an issue with customer details and we were unable to save the information in our database"}')
   end
 
 
