@@ -40,7 +40,7 @@ Sample POST Request body
 	"expiration_month": "01",
 	"expiration_year": "2024",
 	"zip_code": "11754",
-	"plan_id": 2
+	"plan_id": "2"
 
 }
 
