@@ -23,13 +23,4 @@ class FakepayService
   def self.parse_json(payload)
     JSON.parse(payload, symbolize_names: true)
   end
-
-  def self.check_amount_with_plan(object)
-    plan = object[:plan_id]
-    amount = object[:amount]
-    if Subscription.validate_pricing[plan].include?(amount) != true
-      render json: { :error =>  "The payment amount does not align with the price of the selected plan. Please check your POST request"}
-      exit
-    end
-  end
 end
