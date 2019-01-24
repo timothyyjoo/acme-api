@@ -23,6 +23,8 @@ The project management workflow can be viewed at https://www.pivotaltracker.com/
 
 7. Please see the sample POST request body for an idea on how to format your JSON POST request.
 
+-Please note that the following fields for customer object is required: first_name, last_name, address, city, state, zip
+
 Sample POST Request body
 
 {
@@ -42,7 +44,7 @@ Sample POST Request body
 	"zip_code": "11754",
 	"plan_id": "2"
 }
--Please note that the following fields for customer object is required: first_name, last_name, address, city, state, zip
+
 
 8) This API has been designed to output all relevant errors as JSON messages
 
