@@ -89,9 +89,7 @@ describe "Customer API" do
     expect(response.body).to eq('{"error":"Your transaction was successful but there was an issue with customer details and we were unable to save the information in our database"}')
   end
 
-  it "invalid plan_id and amount POST request returns json_message" do
-
-
+  it "will return json error message if invalid plan_id and amount is in POST request" do
     customer_params = {
       "customer": {
         "first_name": "Jim",
@@ -114,5 +112,30 @@ describe "Customer API" do
     post "/api/v1/customers", {params:  customer_params }
 
     expect(response.body).to eq('{"error":"The payment amount does not align with the price of the selected plan. Please check your POST request"}')
+  end
+
+  it "will return json error message if invalid plan_id is in POST request" do
+
+    customer_params = {
+      "customer": {
+        "first_name": "Jim",
+        "last_name": "Jones",
+        "address": "2120 Wimbeldon Court",
+        "city": "Modesto",
+        "state": "CA",
+      },
+      "amount": 1999,
+      "card_number": "42424242424242421",
+      "cvv": "123",
+      "expiration_month": "01",
+      "expiration_year": "2024",
+      "zip_code": "11754",
+      "plan_id": 22
+
+    }
+
+    post "/api/v1/customers", {params:  customer_params }
+
+    expect(response.body).to eq('{"error":"Plan_id does not exist in database"}')
   end
 end

@@ -2,7 +2,7 @@ class Validator
 
   def self.check_subscription(object, params, customer_params)
    return Subscription.set_plan_and_amount(params) if Subscription.set_plan_and_amount(params).class == Hash
-   
+
    if Subscription.set_plan_and_amount(params) == true
      self.check_transaction(object, params, customer_params)
    else
@@ -17,6 +17,7 @@ class Validator
 
   def self.response_unsuccessful?(response, params, customer_params)
     return {:error =>  "Your transaction failed due to error code: #{response[:error_code]}. Please check the error code description"} if response[:success] == false
+
     customer_validation = Customer.store_token(response, params, customer_params)
     return customer_validation
   end
