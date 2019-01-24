@@ -41,11 +41,11 @@ Sample POST Request body
 	"expiration_year": "2024",
 	"zip_code": "11754",
 	"plan_id": "2"
-
 }
+-Please note that the following fields for customer object is required: first_name, last_name, address, city, state, zip
 
-8) This API has been designed to output all relevant errors within the console. Please check the appropriate error messages / codes with the details listed on the Fakepay.io error tables.
+8) This API has been designed to output all relevant errors as JSON messages
 
-9) Run rake to see all associated tests.
+9) Run bundle exec rspec or rake to see all associated tests.
 
-10) I experimented with using serializers to display certain customer info but didn't dive too deeply due to the idea that I wasn't sure just how much customer information or information in general I wanted to expose.
+10) Code Review: I believe my error handling could be cleaned up or made more modular. I looked into creating a method in application controller to standardize my error messages but ran into some confusion trying to implement the method in my controller due to validations occurring in model files which do not have access to render method.

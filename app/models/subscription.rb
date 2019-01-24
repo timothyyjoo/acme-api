@@ -9,6 +9,8 @@ class Subscription < ApplicationRecord
   def self.check_amount_with_plan(object)
     plan = object[:plan_id]
     amount = object[:amount]
+
+    Subscription.validate_pricing[plan].nil? ? false :
     Subscription.validate_pricing[plan].include?(amount)
   end
 end
