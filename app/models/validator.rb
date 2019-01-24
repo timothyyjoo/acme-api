@@ -1,7 +1,9 @@
 class Validator
 
   def self.check_subscription(object, params, customer_params)
-   if Subscription.check_amount_with_plan(params) == true
+   return Subscription.set_plan_and_amount(params) if Subscription.set_plan_and_amount(params).class == Hash
+   
+   if Subscription.set_plan_and_amount(params) == true
      self.check_transaction(object, params, customer_params)
    else
      return {:error =>  "The payment amount does not align with the price of the selected plan. Please check your POST request"}
