@@ -11,7 +11,7 @@ class Customer < ApplicationRecord
                         :zip
 
 
-##Noticed that I do my customer validation after i validate my transaction. This order needs to be reversed. Customer should be saved to database, then transaction is validated, and then authorization token should be saved to that customer. 
+##Does this meet sandi metz 5 line method rule or could this method be split into a setter method that establishes a customer instance and plan, which is then passed to a store token method?
   def self.store_token(object, params, customer_data)
     customer = Customer.new(customer_data)
     begin
