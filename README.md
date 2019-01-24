@@ -44,8 +44,8 @@ Sample POST Request body
 
 }
 
-8) This API has been designed to output all relevant errors within the console. Please check the appropriate error messages / codes with the details listed on the Fakepay.io error tables.
+8) This API has been designed to output all relevant errors as JSON messages
 
-9) Run rake to see all associated tests.
+9) Run bundle exec rspec or rake to see all associated tests.
 
 10) I experimented with using serializers to display certain customer info but didn't dive too deeply due to the idea that I wasn't sure just how much customer information or information in general I wanted to expose.
