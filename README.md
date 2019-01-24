@@ -19,7 +19,7 @@ The project management workflow can be viewed at https://www.pivotaltracker.com/
 
 5. The port should be set to "http://localhost:3000"
 
-6. The uri to submit POST requests is "/api/v1/subscriptions"
+6. The uri to submit POST requests is "/api/v1/customers"
 
 7. Please see the sample POST request body for an idea on how to format your JSON POST request.
 
