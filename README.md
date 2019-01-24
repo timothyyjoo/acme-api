@@ -9,7 +9,7 @@ The project management workflow can be viewed at https://www.pivotaltracker.com/
 1. Run bundle install && bundle exec figaro install
 	- After running bundle exec figaro install, your directory should have an application.yml file. Inside that file, please include a line similar to the sample below, but with your API key inserted where appropriate.
 
-	fakepay_api_key: 85213e2093d9312bcdc67e75c24234
+	fakepay_api_key: 85213e2093d9312bcdc67e75c23067
 
 2. In CLI, type rake db:create db:migrate
 
