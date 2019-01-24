@@ -85,8 +85,9 @@ describe "Customer API" do
     }
 
     post "/api/v1/customers", {params:  customer_params }
+    parsed = JSON.parse(response.body)
 
-    expect(response.body).to eq('{"error":"Your transaction was successful but there was an issue with customer details and we were unable to save the information in our database"}')
+    expect(parsed["status"]).to eq('record_invalid')
   end
 
   it "will return json error message if invalid plan_id and amount is in POST request" do
