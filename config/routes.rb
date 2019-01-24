@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   namespace :api do
     namespace :v1 do
-      resources :subscriptions, only: [:create, :show]
-      resources :customers, only: [:index, :show]
+      resources :customers, only: [:index, :show, :create]
     end
   end
 end
