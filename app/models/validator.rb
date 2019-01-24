@@ -11,14 +11,13 @@ class Validator
   end
 
   def self.check_transaction(object, params, customer_params)
-    formatted = FakepayService.parse_json(object)
-    if formatted[:success] == false
-      return {:error =>  "Your transaction failed due to error code: #{formatted[:error_code]}. Please check the error code description"}
-    elsif formatted[:success] == true
-      customer_validation = Customer.store_token(formatted, params, customer_params)
-      return customer_validation
-    else
-      return formatted
-    end
+    response = FakepayService.parse_json(object)
+    response_unsuccessful?(response, params, customer_params)
+  end
+
+  def self.response_unsuccessful?(response, params, customer_params)
+    return {:error =>  "Your transaction failed due to error code: #{response[:error_code]}. Please check the error code description"} if response[:success] == false
+    customer_validation = Customer.store_token(response, params, customer_params)
+    return customer_validation
   end
 end
